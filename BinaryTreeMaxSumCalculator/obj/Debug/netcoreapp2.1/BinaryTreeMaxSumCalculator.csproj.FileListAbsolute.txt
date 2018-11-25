@@ -4,7 +4,6 @@ C:\Users\tss\Desktop\homework\BinaryTreeMaxSumCalculator\BinaryTreeMaxSumCalcula
 C:\Users\tss\Desktop\homework\BinaryTreeMaxSumCalculator\BinaryTreeMaxSumCalculator\bin\Debug\netcoreapp2.1\BinaryTreeMaxSumCalculator.runtimeconfig.dev.json
 C:\Users\tss\Desktop\homework\BinaryTreeMaxSumCalculator\BinaryTreeMaxSumCalculator\bin\Debug\netcoreapp2.1\BinaryTreeMaxSumCalculator.dll
 C:\Users\tss\Desktop\homework\BinaryTreeMaxSumCalculator\BinaryTreeMaxSumCalculator\bin\Debug\netcoreapp2.1\BinaryTreeMaxSumCalculator.pdb
-C:\Users\tss\Desktop\homework\BinaryTreeMaxSumCalculator\BinaryTreeMaxSumCalculator\obj\Debug\netcoreapp2.1\BinaryTreeMaxSumCalculator.csprojAssemblyReference.cache
 C:\Users\tss\Desktop\homework\BinaryTreeMaxSumCalculator\BinaryTreeMaxSumCalculator\obj\Debug\netcoreapp2.1\BinaryTreeMaxSumCalculator.csproj.CoreCompileInputs.cache
 C:\Users\tss\Desktop\homework\BinaryTreeMaxSumCalculator\BinaryTreeMaxSumCalculator\obj\Debug\netcoreapp2.1\BinaryTreeMaxSumCalculator.AssemblyInfoInputs.cache
 C:\Users\tss\Desktop\homework\BinaryTreeMaxSumCalculator\BinaryTreeMaxSumCalculator\obj\Debug\netcoreapp2.1\BinaryTreeMaxSumCalculator.AssemblyInfo.cs
