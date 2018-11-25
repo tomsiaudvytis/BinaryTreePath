@@ -1,18 +1,25 @@
-﻿namespace BinaryTreeMaxSumCalculator
+﻿namespace TreePathSumCalculator
 {
-    using BinaryTreeMaxSumCalculator.Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using TreePathSumCalculator.Models;
 
-    interface IBinaryTreeCalculator
+    public interface ICalculationLogic
     {
-        BinaryTreeCalculationResult CalculateMaxSum(List<int[]> digits);
+        CalculationResult CalculateMaxSum(List<int[]> digits);
     }
 
-    internal class BinaryTreeCalculator : IBinaryTreeCalculator
+    public class CalculationLogic : ICalculationLogic
     {
-        public BinaryTreeCalculationResult CalculateMaxSum(List<int[]> binaryTryRows)
+        private readonly ILogger _logger;
+
+        public CalculationLogic(ILogger logger)
+        {
+            _logger = logger;
+        }
+
+        public CalculationResult CalculateMaxSum(List<int[]> binaryTryRows)
         {
             try
             {
@@ -37,14 +44,15 @@
                     path.Add(currentRowMaxValue.ToString());
                 }
 
-                return new BinaryTreeCalculationResult()
+                return new CalculationResult()
                 {
-                    MaxSum = maxSum,
+                    MaxPathSum = maxSum,
                     Path = string.Join(", ", path)
                 };
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                _logger.LogFile($"{ex.Message} | {ex.StackTrace}");
                 throw;
             }
         }

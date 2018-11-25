@@ -23,4 +23,8 @@
     <Folder Include="Properties\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TreePathSumCalculator\TreePathSumCalculator.csproj" />
+  </ItemGroup>
+
 </Project>

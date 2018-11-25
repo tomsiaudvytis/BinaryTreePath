@@ -2,28 +2,41 @@
 {
     using System;
     using Microsoft.Extensions.DependencyInjection;
+    using TreePathSumCalculator;
+    using TreePathSumCalculator.Models;
 
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
-            SetupDi(out IApplicationInitializer applicationInit);
-            var result = applicationInit.CalculateMaxPathSum();
-            Console.WriteLine($"Max sum: {result.MaxSum}\nPath: {result.Path}");
+            SetupDi(out ICalculator applicationInit);
+            CalculationResult result = applicationInit.StartCalculation(@"Data\tree.txt");
+
+            if (!string.IsNullOrEmpty(result.ErrorMessage))
+            {
+                Console.WriteLine(result.ErrorMessage);
+            }
+            else
+            {
+                Console.WriteLine($"Calculation completed. ");
+                Console.WriteLine($"Max path sum: {result.MaxPathSum}\nPath: {result.Path}");
+            }
 
             Console.ReadLine();
         }
 
-        private static void SetupDi(out IApplicationInitializer app)
+        private static void SetupDi(out ICalculator app)
         {
             var serviceProvider = new ServiceCollection()
-                .AddSingleton<IApplicationInitializer, ApplicationInitializer>()
-                .AddSingleton<IFileReader, FileReader>()
-                .AddSingleton<IStreamConverter, StreamConverter>()
-                .AddSingleton<IBinaryTreeCalculator, BinaryTreeCalculator>()
-                .BuildServiceProvider();
+                .AddSingleton<IDataReader, DataReader>()
+                .AddSingleton<IDataParser, DataParser>()
+                .AddSingleton<ICalculator, Calculator>()
+                .AddSingleton<ICalculationLogic, CalculationLogic>()
+                .AddSingleton<ILogger, CustomLogger>()
+                .AddSingleton<IBinaryTreeValidator, BinaryTreeValidator>()
+              .BuildServiceProvider();
 
-            app = serviceProvider.GetService<IApplicationInitializer>();
+            app = serviceProvider.GetService<ICalculator>();
         }
     }
 }
